@@ -1,0 +1,464 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ICMAPI",
+    "description": "ICM BlockCypher API",
+    "version": "ICMV1"
+  },
+  "paths": {
+    "/api/Authentication/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SyncBlockCypherDash": {
+      "get": {
+        "tags": [
+          "BlockCyper"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SyncBlockCypherETH": {
+      "get": {
+        "tags": [
+          "BlockCyper"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SyncBlockCypherBTC": {
+      "get": {
+        "tags": [
+          "BlockCyper"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ManualPayloadDash": {
+      "post": {
+        "tags": [
+          "BlockCyper"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDashRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDashRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDashRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ManualPayloadETH": {
+      "post": {
+        "tags": [
+          "BlockCyper"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateETHRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateETHRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateETHRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/ManualPayloadBTC": {
+      "post": {
+        "tags": [
+          "BlockCyper"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBTCRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBTCRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBTCRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/GetDashData": {
+      "get": {
+        "tags": [
+          "CypherValues"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/GetETHData": {
+      "get": {
+        "tags": [
+          "CypherValues"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/GetBTCData": {
+      "get": {
+        "tags": [
+          "CypherValues"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateBTCRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "nullable": true
+          },
+          "latest_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "previous_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "previous_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "peer_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unconfirmed_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "high_fee_per_kb": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "medium_fee_per_kb": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "low_fee_per_kb": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_fork_height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_fork_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateDashRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "nullable": true
+          },
+          "latest_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "previous_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "previous_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "peer_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unconfirmed_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "high_fee_per_kb": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "medium_fee_per_kb": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "low_fee_per_kb": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_fork_height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_fork_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateETHRequest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "nullable": true
+          },
+          "latest_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "previous_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "previous_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "peer_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unconfirmed_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "high_gas_price": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "medium_gas_price": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "low_gas_price": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "high_priority_fee": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "medium_priority_fee": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "low_priority_fee": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "base_fee": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "last_fork_height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "last_fork_hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Bearer Authentication with JWT Token",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
